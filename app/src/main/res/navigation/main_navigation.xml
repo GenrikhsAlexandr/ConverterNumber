@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ncbs.converternumber.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_toDecemberFragment"
+            app:destination="@id/toDecemberFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fromDecemberFragment"
+            app:destination="@id/fromDecemberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fromDecemberFragment"
+        android:name="com.ncbs.converternumber.FromDecemberFragment"
+        android:label="fragment_from_december"
+        tools:layout="@layout/fragment_from_december" >
+        <action
+            android:id="@+id/action_fromDecemberFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDecemberFragment"
+        android:name="com.ncbs.converternumber.ToDecemberFragment"
+        android:label="fragment_to_december"
+        tools:layout="@layout/fragment_to_december" >
+        <action
+            android:id="@+id/action_toDecemberFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+</navigation>

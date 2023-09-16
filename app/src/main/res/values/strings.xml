@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Перевод чисел</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="to_december_fragment">ToFragment</string>
+    <string name="from_december_fragment">FromFragment</string>
+    <string name="nameCalculator">Калькулятор\n перевода системы чисел</string>
+    <string name="fromDecember">Из десятичной системы</string>
+    <string name="toDecember">в десятичную систему</string>
+</resources>
