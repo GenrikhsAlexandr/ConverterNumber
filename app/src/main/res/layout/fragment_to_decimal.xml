@@ -57,7 +57,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btResultToDecember"
+        android:id="@+id/btResultToDecimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

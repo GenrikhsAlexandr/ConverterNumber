@@ -1,6 +1,7 @@
 package com.ncbs.converternumber.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,10 +28,8 @@ class FromDecimalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btResultFromDecember.setOnClickListener {
             subscribe()
-            onClickListener()
-        }
+            setClickListener()
     }
 
     private fun subscribe() {
@@ -61,11 +60,13 @@ class FromDecimalFragment : Fragment() {
         }
     }
 
-    private fun onClickListener() {
+    private fun setClickListener() {
         binding.btResultFromDecember.setOnClickListener {
             viewModel.sourceNumber.value = binding.sourceNumber.text.toString()
             viewModel.sourceBase.value = binding.sourceBase.text.toString()
             viewModel.resultFromDecimal()
+            Log.d("xxx", "Clicked ${viewModel.resultFromDecimal()}")
+            Log.d("xxx", "viewModel from $viewModel")
 
         }
         binding.btClear.setOnClickListener {
@@ -73,6 +74,8 @@ class FromDecimalFragment : Fragment() {
             binding.sourceNumber.text = null
             binding.sourceBase.text = null
             binding.tvResultFrom.text = null
+            Log.d("xxx", "ClickedClear ${viewModel.clearOnClicked()}")
+            Log.d("xxx", "viewModel to $viewModel")
         }
     }
 
