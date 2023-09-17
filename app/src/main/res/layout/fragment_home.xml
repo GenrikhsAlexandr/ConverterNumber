@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.HomeFragment"
     android:orientation="vertical"
-    android:background="@color/material_dynamic_primary10">
+    android:background="#182932">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvName"
