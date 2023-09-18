@@ -9,30 +9,5 @@
         android:id="@+id/homeFragment"
         android:name="com.ncbs.converternumber.presentation.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_toDecemberFragment"
-            app:destination="@id/toDecemberFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_fromDecemberFragment"
-            app:destination="@id/fromDecemberFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/fromDecemberFragment"
-        android:name="com.ncbs.converternumber.presentation.FromDecimalFragment"
-        android:label="fragment_from_december"
-        tools:layout="@layout/fragment_from_decimal" >
-        <action
-            android:id="@+id/action_fromDecemberFragment_to_homeFragment"
-            app:popUpTo="@id/homeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/toDecemberFragment"
-        android:name="com.ncbs.converternumber.presentation.ToDecimalFragment"
-        android:label="fragment_to_december"
-        tools:layout="@layout/fragment_to_decimal" >
-        <action
-            android:id="@+id/action_toDecemberFragment_to_homeFragment"
-            app:popUpTo="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 </navigation>

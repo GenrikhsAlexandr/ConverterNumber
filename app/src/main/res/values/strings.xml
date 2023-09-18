@@ -1,15 +1,22 @@
 <resources>
     <string name="app_name">Калькулятор систем счисления</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="to_december_fragment">ToFragment</string>
-    <string name="from_december_fragment">FromFragment</string>
+    <string name="to_decimal_fragment">ToFragment</string>
+    <string name="from_decimal_fragment">FromFragment</string>
     <string name="nameCalculator">Калькулятор\n перевода системы чисел</string>
-    <string name="fromDecember">Из десятичной системы</string>
-    <string name="toDecember">в десятичную систему</string>
-    <string name="fromDecemberFragment">Перевод из десятичной системы</string>
-    <string name="toDecemberFragment">Перевод в десятичную систему</string>
+    <string name="fromDecimal">Из десятичной системы</string>
+    <string name="toDecimal">в десятичную систему</string>
+    <string name="mix"> перевод из \"х\" системы в \"y\" систему</string>
+    <string name="fromDecimalFragment">Перевод из десятичной системы</string>
+    <string name="mixSystemFragment">Перевод системы исчесления</string>
+    <string name="toDecimalFragment">Перевод в десятичную систему</string>
     <string name="result">Решить</string>
     <string name="InputNumber">Введите число</string>
-    <string name="sourceBase">Введите основание числа</string>
+    <string name="InputStartNumber">Число</string>
+    <string name="InputStartBase">Основние числа</string>
+    <string name="OutBase">Основние второго числа</string>
+    <string name="sourceBase">Основание искомого числа</string>
     <string name="clear">Сброс</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

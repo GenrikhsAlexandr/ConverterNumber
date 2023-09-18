@@ -4,15 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.ncbs.converternumber.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.ncbs.converternumber.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding get() = _binding!!
+
+    private val viewModel: ResultViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,21 +28,59 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.fromDecember.setOnClickListener {
-            fromDecember()
+        subscribe()
+        setClickListener()
+    }
+
+    private fun subscribe() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.sourceNumber.collect {
+                viewModel.sourceNumber.value
+            }
         }
-        binding.toDecember.setOnClickListener {
-            toDecember()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.sourceBase1.collect {
+                viewModel.sourceBase1.value
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.sourceBase2.collect {
+                viewModel.sourceBase2.value
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.result.collect {
+                binding.tvResult.text = it
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.invalid.collect { message ->
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.emptyNumber.collect { message ->
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun toDecember(){
-        findNavController().navigate(R.id.action_homeFragment_to_toDecemberFragment)
-    }
-    private fun fromDecember(){
-        findNavController().navigate(R.id.action_homeFragment_to_fromDecemberFragment)
-    }
+    private fun setClickListener() {
+        binding.btResultFromDecember.setOnClickListener {
+            viewModel.sourceNumber.value = binding.sourceNumber.text.toString()
+            viewModel.sourceBase1.value = binding.sourceBase1.text.toString()
+            viewModel.sourceBase2.value = binding.sourceBase2.text.toString()
+            viewModel.resultMixSystem()
+        }
 
+        binding.btClear.setOnClickListener {
+            viewModel.clearOnClicked()
+            binding.sourceNumber.text = null
+            binding.sourceBase1.text = null
+            binding.sourceBase2.text = null
+            binding.tvResult.text = null
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
